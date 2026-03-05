@@ -16,7 +16,14 @@ if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={
+        **connect_args,
+        "options": "-c timezone=utc"
+    },
+    pool_pre_ping=True,   # auto-reconnect on idle connections
+)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 Base = declarative_base()
 
@@ -81,3 +88,4 @@ class IncidentLog(Base):
     duration_seconds = Column(Integer,    nullable=True)
 
     website = relationship("Website", back_populates="incidents")
+
