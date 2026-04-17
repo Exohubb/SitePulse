@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-surface text-slate-100 font-sans antialiased; }
+  ::-webkit-scrollbar       { @apply w-1.5; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-muted rounded-full; }
+}
+
+@layer components {
+  .card     { @apply bg-surface-card border border-surface-muted rounded-xl p-5; }
+  .btn      { @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-4 py-2 rounded-lg text-sm transition-all duration-200 disabled:opacity-50; }
+  .btn-ghost{ @apply text-slate-400 hover:text-white hover:bg-surface-muted px-3 py-2 rounded-lg text-sm transition-all duration-200; }
+  .input    { @apply bg-surface-card border border-surface-muted text-slate-100 rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-brand-500 transition-colors placeholder:text-slate-500; }
+  .badge-up   { @apply text-xs px-2 py-0.5 rounded-full bg-up/10   text-up   font-medium; }
+  .badge-down { @apply text-xs px-2 py-0.5 rounded-full bg-down/10 text-down font-medium; }
+  .badge-slow { @apply text-xs px-2 py-0.5 rounded-full bg-slow/10 text-slow font-medium; }
+  .dot-up     { @apply w-2.5 h-2.5 rounded-full bg-up   flex-shrink-0; }
+  .dot-down   { @apply w-2.5 h-2.5 rounded-full bg-down flex-shrink-0; }
+  .dot-slow   { @apply w-2.5 h-2.5 rounded-full bg-slow flex-shrink-0; }
+}
