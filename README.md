@@ -398,13 +398,3 @@ Pull requests are welcome. For major changes, open an issue first.
 5. Open a Pull Request
 
 ---
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-  Made with ♥ by <a href="https://github.com/Exohubb">Exohubb</a>
-</div>
